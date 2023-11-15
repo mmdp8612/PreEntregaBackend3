@@ -1,10 +1,24 @@
-## Información sobre el Desafio 8
+## Información sobre PreEntrega 3
 
 Se separo en capas el proyecto, al mismo se le agrego la carpeta service, en el mismo se realizaron las clases que 
 se encargan de interactuar con las clases DAO de User, Product, etc.
 
 Ademas esta el archivo .env en el raiz con todas las variables de entorno tanto para la configuracion de MONGO y demas 
-funcionalidades.
+funcionalidades, para acceder a las variables de entorno se creo un archivo de configuracion config/config.js donde se 
+exportan las mismas.
+
+Se aplico el patron Factory para poder trabajar tanto con MONGO como con FS, este ultimo no quedo implementado, lo realice 
+a los fines de que quede se pueda realizar a futuro dicha implementacion.
+
+Se incorporo la posibilidad de finalizar la compra y la generacion del ticket, para ello se creo el modelo Ticket.
+
+Para agregar productos al carrito se deben loguear como usuarios, en caso contrario no le permitira agregar los productos al carrito, cuando se haga click en el boton "Agregar al carrito" va a solicitar el ingreso del id del carrito, para crear 
+los mismos esta la ruta **http://localhost:8080/api/cart** la misma devueve el id.
+
+Para visualizar el carrito se debe visitar la siguiente ruta **http://localhost:8080/view/cart/cid** donde cid es el id 
+del carrito que se creo previamente, alli esta el boton para finalizar la compra y al finalizar generara el ticket con 
+el total, ademas que eliminara los productos ya vendidos y dejara intactos aquellos que no cuenten con stock suficiente.
+
 
 - **GET**      http://localhost:8080/view/profile
 
